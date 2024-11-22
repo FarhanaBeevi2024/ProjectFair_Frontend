@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
-import projImg from '../assets/MediaPlayerProject.png'
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Col, Row } from 'react-bootstrap';
@@ -19,7 +18,7 @@ function ProjectCard({projects}) {
   const handleShow = () => setShow(true);
 
   return (
-    <div>
+    <>
 
    <Card style={{ width: '100%' }} className='shadow mt-4 border-0 rounded-0' onClick={handleShow}>
       <Card.Img variant="top" src={`${serverUrl}/uploads/${projects.projImage}`} width={'100%'} height={'250px'} />
@@ -27,6 +26,8 @@ function ProjectCard({projects}) {
         <Card.Title className='text-center'>{projects?.title}</Card.Title>
       </Card.Body>
     </Card>
+
+    <div className="modal show" style={{ display: 'block', position: 'initial' }}>
 
     <Modal show={show} onHide={handleClose} size='lg'>
         <Modal.Header closeButton>
@@ -58,6 +59,7 @@ function ProjectCard({projects}) {
       </Modal>
 
     </div>
+    </>
   )
 }
 
